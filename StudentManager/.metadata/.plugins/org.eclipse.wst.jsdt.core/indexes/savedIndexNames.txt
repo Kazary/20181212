@@ -1,0 +1,8 @@
+INDEX VERSION 1.4+C:\java\install ŠJ”­ŠÂ‹«\StudentManager\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
+1123838984.index
+613589517.index
+1208347972.index
+3962770886.index
+3652002185.index
+450139671.index
+1373354975.index

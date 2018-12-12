@@ -1,0 +1,28 @@
+table tr td{
+  border-top:1px solid black;border-left:1px solid black;text-align:center;
+  }
+
+table tr:last-of-type td{
+	border-bottom:1px solid black;
+	}
+
+table tr td:last-of-type{
+	border-right:1px solid black;
+	}
+
+table tr td:nth-child(2),
+table tr td:nth-child(3){
+	text-align:left;
+	}
+
+table tr td:nth-child(n+4):nth-child(-n+5){
+	text-align:right;
+	}
+
+table tr th{
+  border-top:1px solid black;border-left:1px solid black;text-align:center;
+  }
+
+ table tr th:last-of-type{
+	border-right:1px solid black;
+	}

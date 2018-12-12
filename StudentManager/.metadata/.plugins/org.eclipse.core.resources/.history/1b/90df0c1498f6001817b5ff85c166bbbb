@@ -1,0 +1,105 @@
+package com.student.dao;
+
+import java.sql.Types;
+import java.util.ArrayList;
+import java.util.List;
+
+import org.springframework.jdbc.core.JdbcTemplate;
+
+import com.student.bean.Student;
+import com.student.mapper.StudentMapper;
+
+/**
+ *
+ * StudentDao クラス
+ *
+ * @author Sui
+ *
+ */
+public class StudentDao {
+
+	// @Fields jdbcTemplate
+	private JdbcTemplate jdbcTemplate;
+
+	/**
+	 * spring提供的类
+	 *
+	 * @param jdbcTemplate
+	 * @param jdbcTemplate
+	 *            返回值类型： void
+	 */
+
+	public void setJdbcTemplate(JdbcTemplate jdbcTemplate) {
+		this.jdbcTemplate = jdbcTemplate;
+	}
+
+	/**
+	 * すべての学生を検索する
+	 *
+	 * @return List<Student>
+	 */
+
+	public List<Student> queryAll() {
+	  //SQLから学生情報を貰う
+		String sql = "select id,name,birthday,age,score,classidfrom student";
+		return jdbcTemplate.query(sql, new StudentMapper());
+	}
+
+	/**
+	 * 学生検索の方法
+	 *
+	 * @param name
+	 * @return
+	 */
+	public List<Student> queryByName(String name) {
+		String sql = "select id,name,birthday,age,score,classid,telephone from student where name like'%" + name + "%'";
+		List<Student> studentlist = new ArrayList();
+		studentlist = jdbcTemplate.query(sql, new StudentMapper());
+		return studentlist;
+	}
+
+
+	/**
+	 * 新規学生の増加
+	 *
+	 * @param student
+	 * @return
+	 */
+	public boolean Addstudent(Student student) {
+		String sql = "insert into student(id,name,birthday,age,score,classid,telephone)values(0,?,?,?,?,?,?)";
+		boolean s;
+		// jdbcTemplate.update(sql,new Object,new int);
+		s = jdbcTemplate.update(sql,
+				new Object[] { student.getName(), student.getBirthday(), student.getAge(), student.getScore(),
+						student.getClassid(),student.getTelephone()},
+				new int[] { Types.VARCHAR, Types.VARCHAR, Types.INTEGER, Types.DOUBLE, Types.INTEGER,Types.VARCHAR }) == 1;
+		return s;
+
+	}
+
+	/**
+	 * 学生削除
+	 *
+	 * @param id
+	 * @return
+	 */
+	public boolean Deletestudent(Integer id) {
+		String sql = "delete from student where id=?";
+		return jdbcTemplate.update(sql, id) == 1;
+	}
+
+	/**
+	 * 更新学生信息
+	 *
+	 * @param student
+	 * @return 返回值类型： boolean
+	 */
+	public boolean updateStudent(Student student) {
+
+		String sql = "update student set name=? ,age=?,birthday = ? ,score = ? ,telephone = ?where id = ?";
+		Object stuObj[] = new Object[] { student.getName(), student.getAge(), student.getBirthday(), student.getScore(),student.getTelephone(),
+				student.getId() };
+
+		return jdbcTemplate.update(sql, stuObj) == 1;
+	}
+}

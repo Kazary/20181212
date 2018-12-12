@@ -1,0 +1,13 @@
+INDEX VERSION 1.130
+C:\java\install 開発環境\StudentManager\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\817160584.index
+\StudentManager\src
+C:\java\install 開発環境\StudentManager\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\10954493.index
+\StudentManager\src
+C:\java\install 開発環境\StudentManager\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3962770886.index
+\StudentManager\src
+C:\java\install 開発環境\StudentManager\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\395192632.index
+\StudentManager\src
+C:\java\install 開発環境\StudentManager\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3415144386.index
+\StudentManager\src
+C:\java\install 開発環境\StudentManager\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\626713476.index
+\StudentManager\src
