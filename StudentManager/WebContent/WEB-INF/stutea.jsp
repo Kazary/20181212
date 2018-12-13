@@ -34,7 +34,7 @@
 		<td>Course</td>
 
 	</tr>
-    <c:forEach items="${stuteas}" var="teacher" >
+    <c:forEach items="${stuteas}" var="student" >
 	    <tr style="color:blue" align="center" >
 			<td id="StudentName${student.id}">${student.name}</td>
 			<td id="Birthday${student.id}">${student.birthday}</td>
