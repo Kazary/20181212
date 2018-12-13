@@ -19,7 +19,7 @@ import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import com.student.bean.Student;
 import com.student.dao.StudentDao;
-
+import com.stutea.dao.StuTeaDao;
 import com.teacher.bean.Teacher;
 import com.teacher.dao.TeacherDao;
 
@@ -131,14 +131,6 @@ public class StudentController {
 		return "teacher";
 	}
 
-//	@RequestMapping(value = "/stuTeaAll")
-//	public String queryStudentTeacherAll(Model model) {
-//		ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
-//		StuTeaDao dao = (StuTeaDao) context.getBean("stuteadao");
-//		model.addAttribute("stuteas", dao.queryStudentTeacherAll());
-//		return "stutea";
-//	}
-
 	@RequestMapping(value = "/myajax", produces = "application/json;charset=UTF-8")
 	public void getAjax(HttpServletRequest request, HttpServletResponse response) {
 		JSONObject obj = new JSONObject();
@@ -165,6 +157,14 @@ public class StudentController {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+	}
+
+	@RequestMapping(value = "/stuteaall")
+	public String queryStudentTeacherAll(Model model) {
+		ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
+		StuTeaDao dao = (StuTeaDao) context.getBean("stuteadao");
+		model.addAttribute("stuteas", dao.queryStudentTeacherAll());
+		return "stutea";
 	}
 
 }
