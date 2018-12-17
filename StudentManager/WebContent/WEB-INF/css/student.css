@@ -26,3 +26,7 @@ table tr th{
  table tr th:last-of-type{
 	border-right:1px solid black;
 	}
+
+.headBackground{
+	background:red;
+}

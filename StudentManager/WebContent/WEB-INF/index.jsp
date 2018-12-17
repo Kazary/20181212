@@ -10,7 +10,18 @@
   <title>学员管理</title>
 <script src="http://cdn.static.runoob.com/libs/jquery/1.10.2/jquery.min.js"></script>
 
+	<script type="text/javascript">
+		$(document).ready(function(){
+			  $("#display").click(function(){
+				  $("#displayGood").submit();
+				  }
+		}
+		});
+		  });
+
+	</script>
 </head>
+
 <body>
 <img src="./images/header.jpg" />
 ${msg}
@@ -42,7 +53,7 @@ ${msg}
   </table>
 </div>
 
-	<div id="add_comm" class="all" align="left">
+	<div id="add_comm" class="all" align="center">
 	  <h2>查找学员</h2>
 	  <form action="queryByName" method="post" >
 		<input type="text" placeholder="姓名" name="name" >
@@ -63,6 +74,13 @@ ${msg}
 		<input id="addclassid" type="text" placeholder="ClassId" name="classid" />
 		<input type="button" value="添加" onClick="addCheckForm()"/>
 	  </form>
+	</div>
+
+	<div align="center">
+		<h2>成績優秀者</h2>
+		<form id="displayGood" action="displayGoodController" method="post">
+			<button id="display" type="button">表示</button>
+		</form>
 	</div>
 
 </body>

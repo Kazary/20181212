@@ -3,6 +3,7 @@ package com.student.controller;
 
 
 import java.io.IOException;
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -165,6 +166,41 @@ public class StudentController {
 		StuTeaDao dao = (StuTeaDao) context.getBean("stuteadao");
 		model.addAttribute("stuteas", dao.queryStudentTeacherAll());
 		return "stutea";
+	}
+
+	@RequestMapping(value = "/displayGood")
+	public String displayGoodScore(Model model) {
+		List<Student> studentList = getStudentList();
+		BigDecimal average = getAverAge(studentList);
+		List<Student> returnList = getReturnList(studentList, average);
+		model.addAttribute("students", returnList);
+		return "index";
+	}
+
+	private List<Student> getStudentList() {
+		ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
+		StudentDao studao = (StudentDao) context.getBean("dao");
+		List<Student> studentList = new ArrayList<Student>();
+		studentList = studao.queryAll();
+		return studentList;
+	}
+
+	private BigDecimal getAverAge(List<Student> studentList) {
+		BigDecimal average = BigDecimal.ZERO;
+		for (Student student : studentList) {
+			average.add(new BigDecimal(student.getScore()));
+		}
+		return average.divide(new BigDecimal(studentList.size()));
+	}
+
+	private List<Student> getReturnList(List<Student> studentList, BigDecimal average) {
+		List<Student> returnList = new ArrayList<>();
+		for (Student student : studentList) {
+			if (new BigDecimal(student.getScore()).compareTo(average) > 0) {
+				returnList.add(student);
+			}
+		}
+		return returnList;
 	}
 
 }

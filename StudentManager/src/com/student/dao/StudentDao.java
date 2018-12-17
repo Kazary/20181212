@@ -2,9 +2,7 @@ package com.student.dao;
 
 import java.sql.Types;
 import java.util.List;
-
 import org.springframework.jdbc.core.JdbcTemplate;
-
 import com.student.bean.Student;
 import com.student.mapper.StudentMapper;
 
