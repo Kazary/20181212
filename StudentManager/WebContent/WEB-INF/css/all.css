@@ -19,6 +19,16 @@
     border-bottom: 1px #000 solid;
     line-height: 23px;
   }
+  //tableの偶数行と奇数行で色違いになるように指定するタグ//
+table tr:nth-child(even) {
+background: #F9F9F9;
+}
+
+table tr:nth-child(odd) {
+background: #F0FAE2;
+}
+
+
   #edit_comm{
     width: 500px;
     margin: 20px auto;
